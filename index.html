@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shoes&Shoes - Home</title>
+<style>
+  /* Reset básico */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffffff;
+    color: #222;
+    
+  }
+  header {
+    background: #0047ab;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(255, 255, 255);
+  }
+  header .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    cursor: pointer;
+  }
+  nav a {
+    color: rgb(252, 252, 252);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  nav a:hover {
+    color: #ffd700;
+  }
+  .banner {
+    background: url('https://images.unsplash.com/photo-1528701800489-476d1d7e22a3?auto=format&fit=crop&w=1400&q=80') no-repeat center/cover;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(78, 47, 214);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px #000;
+  }
+  .products {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 25px;
+  }
+  .product-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .product-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .product-info {
+    margin-top: 15px;
+  }
+  .product-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  .product-info p {
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  .product-info .price {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #0047ab;
+  }
+  .btn-add {
+    background: #0047ab;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .btn-add:hover {
+    background: #002f6c;
+  }
+  footer {
+    background: #0047ab;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: 50px;
+  }
+  @media(max-width: 600px) {
+    header {
+      flex-direction: column;
+      gap: 10px;
+    }
+    nav a {
+      margin-left: 0;
+      margin-right: 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Shoes&Shoes</div>
+  <nav>
+    <a href="login.html">Login</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="carrinho.html">Carrinho</a>
+  </nav>
+</header>
+
+<div class="banner">
+  Os Produtos 
+</div>
+
+<section class="products">
+  <div class="product-card">
+    <img src="download.jpeg" alt="Sapato Casual Málaga Mooca">
+    <div class="product-info">
+      <h3>Sapato Casual Málaga Mooca</h3>
+      <p>Estilo casual para o dia a dia, com toque moderno.</p>
+      <div class="price">R$ 499,90</div>
+      <button class="btn-add">Adicionar ao carrinho</button>
+    </div>
+  </div>
+  
+  <div class="product-card">
+    <img src="download (1).jpeg" alt="Sapato Social Feminino Lia em Couro Legítimo Preto">
+    <div class="product-info">
+      <h3>Sapato Social Feminino Lia em Couro Legítimo Preto</h3>
+      <p>Conforto e estilo para suas corridas e passeios.</p>
+      <div class="price">R$ 299,90</div>
+      <button class="btn-add">Adicionar ao carrinho</button>
+    </div>
+  </div>
+  
+  <div class="product-card">
+    <img src="download (2).jpeg" alt="Sapato Social Masculino em Couro Com Costura Manual Calvest Viena">
+    <div class="product-info">
+      <h3>Sapato Social Masculino em Couro Com Costura Manual Calvest Viena</h3>
+      <p>Design moderno e desempenho para treinos.</p>
+      <div class="price">R$ 1.099,90</div>
+      <button class="btn-add">Adicionar ao carrinho</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Shoes&Shoes. Todos os direitos reservados.
+</footer>
+
+</body>
+</html>

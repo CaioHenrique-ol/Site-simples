@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shoes&Shoes - Produtos</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e5f0ff;
+    margin: 0; padding: 0;
+  }
+  header {
+    background: #0047ab;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+  }
+  header a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  main {
+    max-width: 1000px;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 25px;
+    padding: 0 20px;
+  }
+  .produto {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+    padding: 15px;
+    text-align: center;
+  }
+  .produto img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  .produto h3 {
+    margin: 12px 0 8px;
+    color: #0047ab;
+  }
+  .produto p {
+    color: #444;
+    margin-bottom: 12px;
+  }
+  .produto button {
+    background: #0047ab;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  .produto button:hover {
+    background: #002f6c;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Shoes&Shoes</h1>
+  <a href="carrinho.html">Carrinho 🛒</a>
+</header>
+
+<main id="produtos-lista">
+  <!-- Produtos serão inseridos via JS -->
+</main>
+
+<script>
+  const produtos = [
+    {
+      id: 1,
+      nome: 'Sapato Casual Málaga Mooca',
+      descricao: 'Estilo casual para o dia a dia, com toque moderno.',
+      preco: 499.90,
+      imagem: 'download.jpeg'
+    },
+    {
+      id: 2,
+      nome: 'Sapato Social Feminino Lia em Couro Legítimo Preto',
+      descricao: 'Versátil e resistente para todas ocasiões.',
+      preco: 299.90,
+      imagem: 'download (1).jpeg'
+    },
+    {
+      id: 3,
+      nome: 'Sapato Social Masculino em Couro Com Costura Manual Calvest Viena',
+      descricao: 'Alta performance com design moderno.',
+      preco: 1099.90,
+      imagem: 'download (2).jpeg'
+    }
+  ];
+
+  const lista = document.getElementById('produtos-lista');
+
+  produtos.forEach(produto => {
+    const div = document.createElement('div');
+    div.className = 'produto';
+    div.innerHTML = `
+      <img src="${produto.imagem}" alt="${produto.nome}" />
+      <h3>${produto.nome}</h3>
+      <p>${produto.descricao}</p>
+      <p><strong>R$ ${produto.preco.toFixed(2)}</strong></p>
+      <button onclick="adicionarCarrinho(${produto.id})">Adicionar ao carrinho</button>
+    `;
+    lista.appendChild(div);
+  });
+
+  function adicionarCarrinho(id) {
+    let carrinho = JSON.parse(localStorage.getItem('carrinhoShoes')) || [];
+    const produto = produtos.find(p => p.id === id);
+    // Verifica se produto já está no carrinho
+    const existe = carrinho.find(item => item.id === id);
+    if(existe){
+      alert('Produto já está no carrinho.');
+      return;
+    }
+    carrinho.push(produto);
+    localStorage.setItem('carrinhoShoes', JSON.stringify(carrinho));
+    alert(`Adicionado "${produto.nome}" ao carrinho.`);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shoes&Shoes - Endereço</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4ff;
+    margin: 0; padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgb(0 0 0 / 0.1);
+    width: 350px;
+  }
+  h2 {
+    color: #0047ab;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #222;
+  }
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 15px;
+    border: 1.8px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    border-color: #0047ab;
+    outline: none;
+  }
+  .btn {
+    width: 100%;
+    background: #0047ab;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .btn:hover {
+    background: #002f6c;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Informe seu Endereço</h2>
+  <form id="enderecoForm">
+    <label for="rua">Rua</label>
+    <input type="text" id="rua" required placeholder="Rua, Av, Travessa..." />
+    
+    <label for="numero">Número</label>
+    <input type="number" id="numero" required placeholder="Número" />
+    
+    <label for="bairro">Bairro</label>
+    <input type="text" id="bairro" required placeholder="Bairro" />
+    
+    <label for="cidade">Cidade</label>
+    <input type="text" id="cidade" required placeholder="Cidade" />
+    
+    <label for="cep">CEP</label>
+    <input type="text" id="cep" required placeholder="00000-000" />
+    
+    <button class="btn" type="submit">Salvar e continuar</button>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('enderecoForm');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const endereco = {
+      rua: form.rua.value.trim(),
+      numero: form.numero.value.trim(),
+      bairro: form.bairro.value.trim(),
+      cidade: form.cidade.value.trim(),
+      cep: form.cep.value.trim(),
+    };
+    if(Object.values(endereco).some(v => v === '')){
+      alert('Preencha todos os campos.');
+      return;
+    }
+    localStorage.setItem('enderecoShoes', JSON.stringify(endereco));
+    alert('Endereço salvo com sucesso!');
+    window.location.href = 'pagamento.html';
+  });
+</script>
+
+</body>
+</html>
